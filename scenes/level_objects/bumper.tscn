@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dobbs5lwreac3"]
+
+[ext_resource type="PackedScene" uid="uid://bnoryh3jgdlv8" path="res://assets/models/level_objects/bumper.blend" id="1_w8dev"]
+[ext_resource type="Script" uid="uid://b5hcetrq34kah" path="res://scripts/bumper.gd" id="2_j2lhr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_77a3b"]
+size = Vector3(0.5, 1, 1)
+
+[node name="bumper" unique_id=1938811045 instance=ExtResource("1_w8dev")]
+script = ExtResource("2_j2lhr")
+
+[node name="Area3D" type="Area3D" parent="Cap" parent_id_path=PackedInt32Array(667764785) index="0" unique_id=609943979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cap/Area3D" index="0" unique_id=934167972]
+shape = SubResource("BoxShape3D_77a3b")
