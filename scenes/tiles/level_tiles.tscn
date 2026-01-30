@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cpg0jds5qtxsn"]
+
+[ext_resource type="PackedScene" uid="uid://cpi81wb0w07op" path="res://assets/models/level_tiles.blend" id="1_7goi4"]
+
+[node name="LevelTiles" unique_id=1028480089 instance=ExtResource("1_7goi4")]
