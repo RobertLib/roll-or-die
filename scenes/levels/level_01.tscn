@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dpthpg7vobnkj"]
+
+[ext_resource type="MeshLibrary" uid="uid://cbk5dgchl5wrr" path="res://scenes/tiles/tile_library.tres" id="1_m802k"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m802k"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_i2aat"]
+sky_material = SubResource("ProceduralSkyMaterial_m802k")
+
+[sub_resource type="Environment" id="Environment_2djvx"]
+background_mode = 2
+sky = SubResource("Sky_i2aat")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Level01" type="Node3D" unique_id=1436575006]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=530430179]
+environment = SubResource("Environment_2djvx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=66626618]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 20, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=471604195]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 5, 10)
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1025977134]
+mesh_library = ExtResource("1_m802k")
+data = {
+"cells": PackedInt32Array(0, 0, 0, 65535, 0, 0, 65535, 65535, 0, 0, 65535, 0, 0, 1, 0, 65535, 1, 0, 65534, 1, 0, 65534, 0, 0, 65534, 65535, 0, 65534, 65534, 0, 65535, 65534, 0, 0, 65534, 0, 1, 1, 0, 1, 0, 0, 1, 65535, 0, 1, 65534, 0, 65534, 65533, 1, 65535, 65533, 1, 0, 65533, 1, 1, 65533, 1, 2, 65534, 1441793, 2, 65535, 1441793, 2, 0, 1441793, 2, 1, 1441793, 1, 2, 655361, 0, 2, 655361, 65535, 2, 655361, 65534, 2, 655361, 65533, 65534, 1048577, 65533, 65535, 1048577, 65533, 0, 1048577, 65533, 1, 1048577, 65533, 65533, 1048578, 2, 65533, 2, 2, 2, 1441794, 65533, 2, 655362)
+}
