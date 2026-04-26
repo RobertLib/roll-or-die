@@ -25,7 +25,7 @@ func _run() -> void:
 	print("Found GridMap: %s" % grid_map.name)
 
 	# For each (X, Z) column find the lowest existing tile Y.
-	var column_min_y: Dictionary = {} # Vector2i(x, z) -> int (lowest Y per column)
+	var column_min_y: Dictionary = {}  # Vector2i(x, z) -> int (lowest Y per column)
 
 	for cell: Vector3i in grid_map.get_used_cells():
 		var key := Vector2i(cell.x, cell.z)

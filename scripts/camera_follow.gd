@@ -6,14 +6,14 @@ extends Camera3D
 
 # Camera offset from target
 @export_group("Offset")
-@export var offset: Vector3 = Vector3(0, 8, 8) # Default isometric-style offset
-@export var look_at_offset: Vector3 = Vector3(0, 0, 0) # Offset for look-at point
+@export var offset: Vector3 = Vector3(0, 8, 8)  # Default isometric-style offset
+@export var look_at_offset: Vector3 = Vector3(0, 0, 0)  # Offset for look-at point
 
 # Follow behavior
 @export_group("Follow Settings")
-@export var follow_speed: float = 5.0 # How fast camera catches up (higher = snappier)
-@export var rotation_speed: float = 3.0 # How fast camera rotates to target
-@export var min_follow_distance: float = 0.1 # Dead zone - don't move if closer than this
+@export var follow_speed: float = 5.0  # How fast camera catches up (higher = snappier)
+@export var rotation_speed: float = 3.0  # How fast camera rotates to target
+@export var min_follow_distance: float = 0.1  # Dead zone - don't move if closer than this
 
 # Boundaries (optional - set to 0 to disable)
 @export_group("Boundaries")
@@ -24,7 +24,7 @@ extends Camera3D
 # Smoothing
 @export_group("Advanced")
 @export var use_smooth_rotation: bool = true
-@export var camera_lag: float = 0.1 # Additional lag for more cinematic feel (0 = no lag)
+@export var camera_lag: float = 0.1  # Additional lag for more cinematic feel (0 = no lag)
 
 var _target_node: Node3D
 
@@ -75,15 +75,15 @@ func shake(intensity: float = 0.5, duration: float = 0.3) -> void:
 	var tween = create_tween()
 	var original_offset = offset
 
-	for i in range(int(duration * 60)): # Approximate frames
+	for i in range(int(duration * 60)):  # Approximate frames
 		var shake_offset = Vector3(
 			randf_range(-intensity, intensity),
 			randf_range(-intensity, intensity),
 			randf_range(-intensity, intensity)
 		)
-		tween.tween_property(self , "offset", original_offset + shake_offset, 0.016)
+		tween.tween_property(self, "offset", original_offset + shake_offset, 0.016)
 
-	tween.tween_property(self , "offset", original_offset, 0.1)
+	tween.tween_property(self, "offset", original_offset, 0.1)
 
 
 # Helper function to set new target at runtime

@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_77a3b"]
 size = Vector3(0.5, 1, 1)
 
-[node name="bumper" unique_id=1938811045 instance=ExtResource("1_w8dev")]
+[node name="Bumper" unique_id=1938811045 instance=ExtResource("1_w8dev")]
 script = ExtResource("2_j2lhr")
 
 [node name="Area3D" type="Area3D" parent="Cap" parent_id_path=PackedInt32Array(667764785) index="0" unique_id=609943979]

@@ -3,8 +3,8 @@ class_name Player
 extends RigidBody3D
 
 # Movement parameters
-@export var move_force: float = 20.0 # Movement force
-@export var max_speed: float = 10.0 # Maximum speed
+@export var move_force: float = 20.0  # Movement force
+@export var max_speed: float = 10.0  # Maximum speed
 
 var _spawn_position: Vector3
 
@@ -19,9 +19,13 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Ground":
-		global_position = _spawn_position
-		linear_velocity = Vector3.ZERO
-		angular_velocity = Vector3.ZERO
+		respawn()
+
+
+func respawn() -> void:
+	global_position = _spawn_position
+	linear_velocity = Vector3.ZERO
+	angular_velocity = Vector3.ZERO
 
 
 # Called every physics frame

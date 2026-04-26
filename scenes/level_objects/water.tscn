@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/water.gd" id="1_water"]
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="2_water"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_water"]
+shader = ExtResource("2_water")
+shader_parameter/water_color = Color(0.15, 0.45, 0.75, 0.8)
+shader_parameter/wave_speed = 1.2
+shader_parameter/wave_height = 0.07
+shader_parameter/wave_frequency = 2.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_water"]
+material = SubResource("ShaderMaterial_water")
+size = Vector2(4, 4)
+subdivide_width = 24
+subdivide_depth = 24
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_water"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_splash"]
+direction = Vector3(0, 1, 0)
+spread = 60.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, -9.8, 0)
+scale_min = 1.0
+scale_max = 1.0
+color = Color(0.4, 0.75, 1.0, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_splash"]
+albedo_color = Color(0.4, 0.75, 1.0, 0.7)
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_splash"]
+material = SubResource("StandardMaterial3D_splash")
+radius = 0.12
+height = 0.24
+
+[node name="Water" type="Area3D" unique_id=812345678]
+script = ExtResource("1_water")
+
+[node name="WaterMesh" type="MeshInstance3D" parent="." unique_id=823456789]
+mesh = SubResource("PlaneMesh_water")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=834567890]
+shape = SubResource("BoxShape3D_water")
+
+[node name="SplashParticles" type="GPUParticles3D" parent="." unique_id=845678901]
+emitting = false
+amount = 24
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.95
+process_material = SubResource("ParticleProcessMaterial_splash")
+draw_pass_1 = SubResource("SphereMesh_splash")
