@@ -47,7 +47,12 @@ func _run() -> void:
 				grid_map.set_cell_item(fill_pos, FILL_ITEM, FILL_ORIENTATION)
 				fill_count += 1
 
+	# Store fill data as metadata so clear_below_surface.gd can remove exactly these tiles later.
+	grid_map.set_meta("fill_surface_min_y", column_min_y)
+	grid_map.set_meta("fill_depth", FILL_DEPTH)
+
 	print("Done! Added %d tiles across %d layers below the surface." % [fill_count, FILL_DEPTH])
+	print("Fill data saved to GridMap metadata. Run clear_below_surface.gd to undo.")
 
 
 func _find_grid_map(node: Node) -> GridMap:
